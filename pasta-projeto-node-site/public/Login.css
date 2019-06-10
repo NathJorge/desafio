@@ -1,0 +1,62 @@
+.body {
+    background-image: url(casas.png);
+    background-size: 100%;
+}
+
+.primeira {
+    color: white;
+    position: relative;
+    padding: 10px;
+    text-align: center;
+    font-family: Bradley Hand, cursive;
+    font-size: 40px;
+    
+}
+
+.segunda {
+    background-color: white;
+    position: relative;
+    left: 30%;
+    width: 500px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+    background-image: url(rei.jpg);
+    margin-top: 200px;
+    
+}
+
+.terceira {
+    color: white;
+    background-color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+
+}
+
+.quarta {
+    border-style: solid;
+    text-align: center;
+    width: 350px;
+    left:200px;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 25px;
+}
+
+.quinta {
+    border-style: solid;
+    text-align: center;
+    width: 350px;
+    left:200px;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 25px;
+}
+
+.sexta {
+    color: white;
+}

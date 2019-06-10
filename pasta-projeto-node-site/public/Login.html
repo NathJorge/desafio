@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+
+    
+    <link rel="stylesheet" href="Login.css">
+
+</head>
+<body class="body">
+
+    
+
+    <div class="segunda">
+            <h1 class="primeira">LOGIN</h1>
+            <form id="form_login" method="post" onsubmit="return entrar()">
+                    <input type="text" placeholder="Email" class="quarta" id="email" name="login"><br>
+                    <input type="password" placeholder="Senha" class="quinta" id="senha" name="senha"><br><br>
+
+                    <button id="btn_entrar" class="terceira">Entrar</button>
+                    <a href="Cadastro.html" class="sexta">Cadastre-se</a> 
+
+            </form>
+    </div>
+
+    <img src="aguarde.gif" id="img_aguarde" style="display: none;">
+    
+    <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
+        Usuário e/ou senha inválidos!
+    </div>
+    
+</body>
+</html>
+<script>
+
+verificarAutenticacao();
+
+function verificarAutenticacao() {
+    if (sessionStorage.usuario_bandtec != undefined) {
+        window.location.href = 'grafico-google-charts.html';
+    }
+}
+
+function entrar() {
+    aguardar();
+    var formulario = new URLSearchParams(new FormData(form_login));
+    fetch("/usuarios/entrar", {
+        method: "POST",
+        body: formulario
+    }).then(function (response) {
+        
+        if (response.ok) {
+
+            response.json().then(function (resposta) {
+
+                sessionStorage.usuario_bandtec = resposta.nome;
+                verificarAutenticacao();
+
+            });
+        } else {
+
+            console.log('Erro de login!');
+            finalizar_aguardar();
+        }
+    });
+
+    return false;
+}
+
+function aguardar() {
+    btn_entrar.disabled = true;
+    img_aguarde.style.display='block';
+    div_erro.style.display='none';
+}
+
+function finalizar_aguardar() {
+    btn_entrar.disabled = false;
+    img_aguarde.style.display='none';
+    div_erro.style.display='block';
+}
+
+</script>

@@ -1,0 +1,30 @@
+.body {
+    background-image: url(casas.png);
+    background-size: 100%;
+}
+
+.primeira{
+    background-color: white;
+    width: 600px;
+    text-align: center;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    position: relative;
+    left: 30%;
+    width: 500px;
+    margin-top: 150px;
+    background-image: url(rei.jpg);
+    color: white;
+    border-radius: 20px;
+}
+
+.segunda {
+    width: 40px;
+}
+
+.terceira {
+    width: 100px;
+    color: white;
+    background-color: blue;
+    border-radius: 20px;
+    
+}

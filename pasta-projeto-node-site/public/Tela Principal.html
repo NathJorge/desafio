@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tela Principal</title>
+
+    <link rel="stylesheet" href="tela_principal.css">
+
+</head>
+<body class="body">
+
+    <div class="primeira">
+    <h1>Preencha o formulário para descobrir a qual casa você pertence :)</h1>
+
+    <form>
+            Defina suas características: <br><br>
+            Frio <input type="radio" name="estacao" id="frio"> 
+            <input type="radio" name="estacao" id="quente"> Quente <br> <br>
+ 
+            Submisso <input type="radio" name="carac" id="sub">  
+            <input type="radio" name="carac" id="resistente"> Resistente <br> <br>
+ 
+            Misericordioso <input type="radio" name="mise" id="miseria">  
+            <input type="radio" name="mise" id="vingativo"> Vingativo <br> <br> <br>
+
+            <button type="button" onclick="funcionar()" class="segunda">Descobrir</button>
+ 
+    </form>
+   </div>
+    
+   <div id="div_mensagem"></div>
+   <img src="stark.jpg" id="figura">
+    
+</body>
+</html>
+<script>
+
+    function funcionar() {
+
+        if(frio.value == true && sub.value == true && miseria.value == true ) {
+
+            div_mensagem.innerHTML = '';
+            figura.src = "mormont.jpg";
+        }
+
+        else if(frio.value == true && resistente.value == true && miseria.value == true) {
+
+            div_mensagem.innerHTML = '';
+            figura.src = "stark.jpg";
+        }
+
+        else if(frio.value == true && resistente.value == true && vingativo.value == true) {
+
+            div_mensagem.innerHTML = '';
+            figura.src = "greyjoy.jpg";
+        }
+
+        else if (frio.value == true && sub.value == true && vingativo.value == true) {
+
+            div_mensagem.innerHTML = '';
+            figura.src = "frey.png";
+        }
+
+        else if (quente.value == true && sub.value == true && miseria.value == true) {
+
+            div_mensagem.innerHTML = '';
+            figura.src = "tyrell.jpg";
+        }
+
+        else if(quente.value == true && resistente.value == true && miseria.value == true) {
+
+            div_mensagem.innerHTML = '';
+            figura.src = "baratheon.png";
+        }
+
+        else if(quente.value == true && resistente.value == true && vingativo.value == true) {
+
+            div_mensagem.innerHTML = '';
+            figura.src = "lannister.png";
+        }
+
+        else  {
+
+            div_mensagem.innerHTML = '';
+            figura.src = "targaryen.png";
+        }
+
+        
+
+
+
+
+
+
+     
+    }
+
+</script>
