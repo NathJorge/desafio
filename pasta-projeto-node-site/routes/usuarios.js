@@ -49,11 +49,11 @@ router.post('/cadastrar', function (req, res, next) {
 	nome = req.body.nome; // depois de .body, use o nome (name) do campo em seu formulário de login
     login = req.body.login; // depois de .body, use o nome (name) do campo em seu formulário de login
     senha = req.body.senha; // depois de .body, use o nome (name) do campo em seu formulário de login
-    if (login == undefined || senha == undefined || nome == undefined) {
+    if (login == undefined || login == "" || senha == undefined || senha == "" || nome == undefined || nome == "") {
 	  // coloque a frase de erro que quiser aqui. Ela vai aparecer no formulário de cadastro
       throw new Error(`Dados de cadastro não chegaram completos: ${login} / ${senha} / ${nome}`);
     }
-    return banco.sql.query(`select count(*) as contagem from usuario where email = '${login}'`);
+    return banco.sql.query(`select count(*) as contagem from usuario where login = '${login}'`);
   }).then(consulta => {
 
 	if (consulta.recordset[0].contagem >= 1) {
@@ -73,7 +73,7 @@ router.post('/cadastrar', function (req, res, next) {
   }).finally(() => {
 	  if (cadastro_valido) {		  
 			  
-		banco.sql.query(`insert into usuario (nome, email, senha) values ('${nome}','${login}','${senha}')`).then(function() {
+		banco.sql.query(`insert into usuario (nome, login, senha) values ('${nome}','${login}','${senha}')`).then(function() {
 			console.log(`Cadastro criado com sucesso!`);
 			res.sendStatus(201); 
 			// status 201 significa que algo foi criado no back-end, 

@@ -11,6 +11,8 @@
 </head>
 <body class="body">
 
+    <a href="Login.html" onclick="sair()">Sair</a>
+
     <div class="primeira">
     <h1>Preencha o formulário para descobrir a qual casa você pertence :)</h1>
 
@@ -36,8 +38,13 @@
 </body>
 </html>
 <script>
-
+function sair(){
+    sessionStorage.removeItem('usuario_bandtec')
+        window.location.href = 'login.html';
+    }
     function funcionar() {
+
+        
 
         if(frio.value == true && sub.value == true && miseria.value == true ) {
 
@@ -87,14 +94,9 @@
             figura.src = "targaryen.png";
         }
 
-        
-
-
-
-
-
 
      
     }
+    
 
 </script>

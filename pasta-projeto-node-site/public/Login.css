@@ -60,3 +60,10 @@
 .sexta {
     color: white;
 }
+
+.gif {
+    position: relative;
+    width: 350px;
+    margin-left: 450px;
+    padding: 10px;
+}

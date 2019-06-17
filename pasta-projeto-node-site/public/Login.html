@@ -26,7 +26,7 @@
             </form>
     </div>
 
-    <img src="aguarde.gif" id="img_aguarde" style="display: none;">
+    <img src="aguarde.gif" id="img_aguarde" style="display: none;" class="gif">
     
     <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
         Usuário e/ou senha inválidos!
@@ -40,7 +40,7 @@ verificarAutenticacao();
 
 function verificarAutenticacao() {
     if (sessionStorage.usuario_bandtec != undefined) {
-        window.location.href = 'grafico-google-charts.html';
+        window.location.href = 'Tela Principal.html';
     }
 }
 

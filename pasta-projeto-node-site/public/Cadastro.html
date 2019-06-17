@@ -17,14 +17,8 @@
 
         <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
            Nome: <input type="text" id="nome" name="nome"><br>
-           Sobrenome: <input type="text" id="sobrenome"><br>
-           Telefone: <input type="number" placeholder="(11)xxxx-xxxx" id="telefone"><br>
-           Endereço: <input type="text" id="endereco"><br>
-           Número: <input type="number" class="segunda" id="numero"> 
-           Complemento: <input type="text" id="complemento"><br>
-           Email: <input type="text" id="email" name="login"><br>
+           Email: <input type="email" id="email" name="login"><br>
            Senha: <input type="password" id="senha" name="senha"><br>
-           Confirme sua senha: <input type="password" id="confirme"><br><br>
 
 
            <br><br>
@@ -32,15 +26,11 @@
             <button id="btn_entrar" class="terceira" >Enviar</button>
         </form>
 
-        
-
-
-
     </div>
 
-    <img src="aguarde2.gif" id="img_aguarde" style="display: none;" width="100px">
+    <img src="aguarde2.gif" id="img_aguarde" style="display: none;" width="100px" class="gif">
     
-    <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
+    <div id="div_erro" style="background-color: transparent;  display: none;">
         Erro no cadastro
     </div>
     
@@ -49,13 +39,19 @@
 <script>
 
 function cadastrar() {
+
+
+            if (nome.value == '' || email.value == '' || senha.value == '' ) {
+                alert('Campos vazios! Insira um dado válido.')
+            }
+            
         aguardar();
-        var formulario = new URLSearchParams(new FormData(form_cadastro));
+        let formulario = new URLSearchParams(new FormData(form_cadastro));
         fetch("/usuarios/cadastrar", {
             method: "POST",
             body: formulario
         }).then(function (response) {
-            
+
             if (response.ok) {
 
                 window.location.href='login.html';
@@ -82,7 +78,7 @@ function cadastrar() {
     function finalizar_aguardar() {
         btn_entrar.disabled = false;
         img_aguarde.style.display='none';
-        div_erro.style.display='block';
+        div_erro.style.display='none';
     }
 
 </script>
